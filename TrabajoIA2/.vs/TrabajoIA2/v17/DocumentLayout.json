@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\components\\qlearning\\qmindtester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\components\\qlearning\\qmindtester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\grupon\\qmindtrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grupon\\qmindtrainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\grupon\\qtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grupon\\qtable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\qmind\\qtablestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\qmind\\qtablestorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\qmind\\qmindtrainerdummy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\qmind\\qmindtrainerdummy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\grupon\\qstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grupon\\qstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|c:\\users\\cristian\\desktop\\trabajoia2\\assets\\scripts\\grupon\\qmindtester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{831133AC-1E21-0DA7-7E98-5E44B534A763}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grupon\\qmindtester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QMindTester.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\Components\\QLearning\\QMindTester.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Components\\QLearning\\QMindTester.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\Components\\QLearning\\QMindTester.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Components\\QLearning\\QMindTester.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAYwGkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T07:37:23.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QTableStorage.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\QMind\\QTableStorage.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\QMind\\QTableStorage.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\QMind\\QTableStorage.cs",
+              "RelativeToolTip": "Assets\\Scripts\\QMind\\QTableStorage.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAcwCEAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T07:09:42.049Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "QMindTrainerDummy.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\QMind\\QMindTrainerDummy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\QMind\\QMindTrainerDummy.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\QMind\\QMindTrainerDummy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\QMind\\QMindTrainerDummy.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAADgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T07:04:08.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "QMindTrainer.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QMindTrainer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GrupoN\\QMindTrainer.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QMindTrainer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GrupoN\\QMindTrainer.cs",
+              "ViewState": "AgIAAOQAAAAAAAAAAAAgwOsAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T06:59:08.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QState.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GrupoN\\QState.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GrupoN\\QState.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T06:58:59.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QTable.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QTable.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GrupoN\\QTable.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QTable.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GrupoN\\QTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T06:58:33.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QMindTester.cs",
+              "DocumentMoniker": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QMindTester.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GrupoN\\QMindTester.cs",
+              "ToolTip": "C:\\Users\\Cristian\\Desktop\\TrabajoIA2\\Assets\\Scripts\\GrupoN\\QMindTester.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GrupoN\\QMindTester.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T06:58:18.569Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
