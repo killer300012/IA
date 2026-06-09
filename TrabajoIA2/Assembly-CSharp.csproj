@@ -72,8 +72,8 @@
     <Compile Include="Assets\External\Supercyan Character Pack Zombie Sample\Scripts\ZombieCharacterControl.cs" />
     <Compile Include="Assets\External\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Scripts\GrupoN\QMindTrainer.cs" />
-    <Compile Include="Assets\Scripts\QMind\Interfaces\IQMind.cs" />
     <Compile Include="Assets\Scripts\Tools\TypeExtensions.cs" />
+    <Compile Include="Assets\Scripts\QMind\Interfaces\IQMind.cs" />
     <Compile Include="Assets\Scripts\Components\QLearning\Movable.cs" />
     <Compile Include="Assets\Scripts\Tools\Vector2Extensions.cs" />
     <Compile Include="Assets\Scripts\GrupoN\QMindTester.cs" />
@@ -422,12 +422,12 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.62f2\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Navigation">
       <HintPath>Assets\Navigation\Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
