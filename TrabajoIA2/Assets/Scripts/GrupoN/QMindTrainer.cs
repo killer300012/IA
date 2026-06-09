@@ -126,31 +126,21 @@ namespace GrupoN
             return state.ToKey();
         }
 
-        /// <summary>
-        /// Ejemplo orientativo:
-        ///    - Si train == false, puedes usar la mejor acción.
-        ///    - Si train == true, con probabilidad epsilon elegir acción aleatoria,
-        ///      y con probabilidad 1-epsilon la mejor según _qTable.GetBestAction(stateKey).
-        /// </summary>
         private QAction ChooseAction(string stateKey, bool train)
         {
+            // Si no estamos entrenando, siempre elegimos la mejor acción
             if (!train)
                 return _qTable.GetBestAction(stateKey);
-
+            // Si estamos entrenando, aplicamos la política ε-greedy
             if (_random.NextDouble() < _params.epsilon)
             {
+                // Elegimos una acción aleatoria 
                 Array actions = Enum.GetValues(typeof(QAction));
                 return (QAction)actions.GetValue(_random.Next(actions.Length));
             }
-
+            // Elegimos la mejor acción según la tabla Q
             return _qTable.GetBestAction(stateKey);
         }
-
-        /// <summary>
-        /// Actualización de Q-Learning:
-        /// Q(s,a) = (1 - alpha) * Q(s,a) + alpha * (reward + gamma * max_a' Q(s',a')).
-        /// Usa _qTable.GetQ, _qTable.SetQ y _qTable.GetMaxQ.
-        /// </summary>
         private void UpdateQ(string stateKey,QAction action,float reward,string nextStateKey)
         {
             float oldQ = _qTable.GetQ(stateKey, action);
@@ -166,32 +156,22 @@ namespace GrupoN
 
             _qTable.SetQ(stateKey, action, newQ);
         }
-
-        /// <summary>
-        /// Función de recompensa.
-        /// Ejemplo orientativo:
-        ///   si agent == other -> recompensa positiva grande (captura)
-        ///   si no -> pequeña penalización negativa por cada paso.
-        /// </summary>
         private float ComputeReward(CellInfo agent, CellInfo other)
         {
+            // recompensa negativa si se caza al agente
             if (agent == other)
+            {
                 return -100f;
-
-            int distance =
-                Math.Abs(agent.x - other.x)
-              + Math.Abs(agent.y - other.y);
+            }
+            // recompensa positiva proporcional a la distancia entre agente y oponente,es decir, cuanto más lejos mejor
+            int distance =Math.Abs(agent.x - other.x) + Math.Abs(agent.y - other.y);
 
             return distance * 0.1f;
         }
 
-        /// <summary>
-        /// Condición de final de episodio.
-        /// Lo más simple: cuando agente y oponente están en la misma celda.
-        /// También puedes definir una probabilidad para el parámetro v visto en clase.
-        /// </summary>
         private bool IsTerminalState(CellInfo agent,CellInfo other)
         {
+            // El episodio termina si el agente es cazado por el oponente, es decir, si ambos están en la misma celda.
             return agent == other;
         }
 

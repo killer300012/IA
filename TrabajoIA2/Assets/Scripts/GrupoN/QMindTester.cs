@@ -37,24 +37,38 @@ namespace GrupoN
 
         private CellInfo ApplyAction(CellInfo agentCell, QAction action)
         {
+            int nx = agentCell.x;
+            int ny = agentCell.y;
+
             switch (action)
             {
                 case QAction.Up:
-                    return new CellInfo(agentCell.x, agentCell.y + 1);
+                    ny += 1;
+                    break;
 
                 case QAction.Down:
-                    return new CellInfo(agentCell.x, agentCell.y - 1);
+                    ny -= 1;
+                    break;
 
                 case QAction.Right:
-                    return new CellInfo(agentCell.x + 1, agentCell.y);
+                    nx += 1;
+                    break;
 
                 case QAction.Left:
-                    return new CellInfo(agentCell.x - 1, agentCell.y);
+                    nx -= 1;
+                    break;
 
                 case QAction.Stay:
-                default:
-                    return new CellInfo(agentCell.x, agentCell.y);
+                    return agentCell;
             }
+
+            CellInfo destination = _worldInfo[nx, ny];
+
+            // Si la celda no existe o no es caminable, nos quedamos donde estamos
+            if (destination == null || !destination.Walkable)
+                return agentCell;
+
+            return destination;
         }
     }
 }
