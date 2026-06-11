@@ -1,4 +1,5 @@
 using NavigationDJIA.World;
+using System;
 
 /// <summary>
 /// TODO(alumno):
@@ -42,11 +43,34 @@ namespace GrupoN
 
         public string ToKey()
         {
-            // Guarda la posicion relativa entre el agente y el oponente, en lugar de la posición absoluta.
+            // Ejemplo de estado basado en la dirección y distancia relativa entre el agente y el oponente.
             int dx = OtherX - AgentX;
             int dy = OtherY - AgentY;
+            // Dirección normalizada a -1, 0 o 1
+            int dirX = Math.Sign(dx);
+            int dirY = Math.Sign(dy);
 
-            return $"{dx},{dy}";
+            // Distancia categorizada en buckets (0-2, 3-5, 6-10, >10)
+            int distance = Math.Abs(dx) + Math.Abs(dy);
+
+            int bucket;
+
+            // Categorizamos la distancia en buckets para reducir el número de estados posibles
+            if (distance <= 2)
+                bucket = 0;
+            else if (distance <= 4)
+                bucket = 1;
+            else if (distance <= 6)
+                bucket = 2;
+            else if (distance <= 8)
+                bucket = 3;
+            else if (distance <= 12)
+                bucket = 4;
+            else
+                bucket = 5;
+
+            // La clave del estado combina la dirección relativa y el bucket de distancia
+            return $"{dirX},{dirY},{bucket}";
         }
     }
 }
