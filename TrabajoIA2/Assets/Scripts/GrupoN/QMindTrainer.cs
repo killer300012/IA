@@ -1,8 +1,10 @@
 using System;
+using System.Diagnostics;
 using NavigationDJIA.Interfaces;
 using NavigationDJIA.World;
 using QMind;
 using QMind.Interfaces;
+using UnityEngine;
 
 namespace GrupoN
 {
@@ -46,6 +48,7 @@ namespace GrupoN
             _worldInfo = worldInfo;
             _navigationAlgorithm = navigationAlgorithm;
             _navigationAlgorithm.Initialize(worldInfo);
+
             // Inicializamos epsilon con el valor inicial definido en los parámetros
             _epsilon = _params.epsilon;
 
@@ -79,10 +82,9 @@ namespace GrupoN
             {
                 return;
             }
-
-            StartNewEpisode();
             // Decaimiento de epsilon al finalizar cada episodio
             DecayEpsilon();
+            StartNewEpisode();
         }
 
         public void DoStep(bool train)
@@ -95,13 +97,18 @@ namespace GrupoN
 
             // Nuevos estados del agente y del oponente
             CellInfo newAgentPos = ApplyAction(_agentPosition, action);
+
+            // Detectar movimiento inválido: intentó moverse (no Stay) y la posición no cambió
+            bool invalidMove = (action != QAction.Stay)
+                               && (newAgentPos.x == _agentPosition.x && newAgentPos.y == _agentPosition.y);
+
             CellInfo newOtherPos = MoveOpponent(_otherPosition, newAgentPos.Walkable ? newAgentPos : _agentPosition);
             
             // Nuevo estado del agente
             string nextStateKey = BuildStateKey(newAgentPos, newOtherPos);
             
-            // Calcula la recompensa
-            float reward = ComputeReward(_agentPosition,_otherPosition,newAgentPos, newOtherPos);
+            // Calcula la recompensa (ahora recibe invalidMove)
+            float reward = ComputeReward(_agentPosition, _otherPosition, newAgentPos, newOtherPos, invalidMove);
 
             if (train)
             {
@@ -160,7 +167,7 @@ namespace GrupoN
 
             _qTable.SetQ(stateKey, action, newQ);
         }
-        private float ComputeReward(CellInfo oldAgent, CellInfo oldOther, CellInfo newAgent, CellInfo newOther)
+        private float ComputeReward(CellInfo oldAgent, CellInfo oldOther, CellInfo newAgent, CellInfo newOther, bool invalidMove)
         {
             // recompensa negativa si se caza al agente
             if (newAgent == newOther)
@@ -176,6 +183,11 @@ namespace GrupoN
            
             reward += (newDistance - oldDistance) * 0.2f; // pequeña recompensa por alejarse del oponente
 
+            // Penalización por movimiento inválido
+            if (invalidMove)
+            {
+                reward -= 10f;
+            }
 
             return reward;
         }
@@ -242,7 +254,8 @@ namespace GrupoN
             // Decaimiento lineal de epsilon a lo largo de los episodios
             float decayRate = _params.epsilon / _params.episodes;
             // Reducimos epsilon pero asegurándonos de que no sea negativo
-            _epsilon = Math.Max(0.01f, _params.epsilon - decayRate);
+            _epsilon = Math.Max(0.01f, _epsilon - decayRate);
+            UnityEngine.Debug.Log($"[QMindTrainer] Epsilon decayed to: {_epsilon}");
         }
         #endregion
     }
