@@ -95,7 +95,7 @@ namespace GrupoN
             string nextStateKey = BuildStateKey(newAgentPos, newOtherPos);
             
             // Calcula la recompensa
-            float reward = ComputeReward(newAgentPos, newOtherPos);
+            float reward = ComputeReward(_agentPosition,_otherPosition,newAgentPos, newOtherPos);
 
             if (train)
             {
@@ -147,26 +147,31 @@ namespace GrupoN
 
             float maxQNext = _qTable.GetMaxQ(nextStateKey);
 
-            float target =
-                reward + _params.gamma * maxQNext;
+            float target = reward + _params.gamma * maxQNext;
 
-            float newQ =
-                (1 - _params.alpha) * oldQ
-                + _params.alpha * target;
+            // Actualizamos Q(s,a) usando la fórmula de Q-Learning:
+            float newQ = (1 - _params.alpha) * oldQ + _params.alpha * target;
 
             _qTable.SetQ(stateKey, action, newQ);
         }
-        private float ComputeReward(CellInfo agent, CellInfo other)
+        private float ComputeReward(CellInfo oldAgent, CellInfo oldOther, CellInfo newAgent, CellInfo newOther)
         {
             // recompensa negativa si se caza al agente
-            if (agent == other)
+            if (newAgent == newOther)
             {
                 return -100f;
             }
-            // recompensa positiva proporcional a la distancia entre agente y oponente,es decir, cuanto más lejos mejor
-            int distance =Math.Abs(agent.x - other.x) + Math.Abs(agent.y - other.y);
 
-            return distance * 0.1f;
+            float reward = 1f; // recompensa positiva por cada paso que el agente sobrevive
+
+            //calculo de la distancia entre el agente y el oponente antes y después de la acción
+            int oldDistance =Math.Abs(oldAgent.x - oldOther.x)+ Math.Abs(oldAgent.y - oldOther.y);
+            int newDistance =Math.Abs(newAgent.x - newOther.x)+ Math.Abs(newAgent.y - newOther.y);
+           
+            reward += (newDistance - oldDistance) * 0.2f; // pequeña recompensa por alejarse del oponente
+
+
+            return reward;
         }
 
         private bool IsTerminalState(CellInfo agent,CellInfo other)
