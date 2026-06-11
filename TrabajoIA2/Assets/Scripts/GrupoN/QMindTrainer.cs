@@ -20,6 +20,8 @@ namespace GrupoN
 
         private float _return;
         private float _returnAveraged;
+        //Creamos una variable epsilon para usarla luego
+        private float _epsilon;
         private System.Random _random = new System.Random();
 
         #region IQMindTrainer implementation
@@ -44,6 +46,8 @@ namespace GrupoN
             _worldInfo = worldInfo;
             _navigationAlgorithm = navigationAlgorithm;
             _navigationAlgorithm.Initialize(worldInfo);
+            // Inicializamos epsilon con el valor inicial definido en los parámetros
+            _epsilon = _params.epsilon;
 
             _qStorage = new QTableStorage("TablaQ.csv");
             _qTable = new QTable(_qStorage);
@@ -77,6 +81,8 @@ namespace GrupoN
             }
 
             StartNewEpisode();
+            // Decaimiento de epsilon al finalizar cada episodio
+            DecayEpsilon();
         }
 
         public void DoStep(bool train)
@@ -132,7 +138,7 @@ namespace GrupoN
             if (!train)
                 return _qTable.GetBestAction(stateKey);
             // Si estamos entrenando, aplicamos la política ε-greedy
-            if (_random.NextDouble() < _params.epsilon)
+            if (_random.NextDouble() < _epsilon)
             {
                 // Elegimos una acción aleatoria 
                 Array actions = Enum.GetValues(typeof(QAction));
@@ -230,6 +236,13 @@ namespace GrupoN
                 return path[0];
 
             return opponent;
+        }
+        private void DecayEpsilon()
+        {
+            // Decaimiento lineal de epsilon a lo largo de los episodios
+            float decayRate = _params.epsilon / _params.episodes;
+            // Reducimos epsilon pero asegurándonos de que no sea negativo
+            _epsilon = Math.Max(0.01f, _params.epsilon - decayRate);
         }
         #endregion
     }

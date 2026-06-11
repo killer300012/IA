@@ -43,34 +43,41 @@ namespace GrupoN
 
         public string ToKey()
         {
-            // Ejemplo de estado basado en la dirección y distancia relativa entre el agente y el oponente.
             int dx = OtherX - AgentX;
             int dy = OtherY - AgentY;
-            // Dirección normalizada a -1, 0 o 1
+
+            int manhattan = Math.Abs(dx) + Math.Abs(dy);
+
+            // Dirección relativa
             int dirX = Math.Sign(dx);
             int dirY = Math.Sign(dy);
 
-            // Distancia categorizada en buckets (0-2, 3-5, 6-10, >10)
-            int distance = Math.Abs(dx) + Math.Abs(dy);
+            // Distancia categorizada para reducir la cantidad de estados sin perder mucha información
+            int distBucket =
+                manhattan <= 2 ? 0 :
+                manhattan <= 5 ? 1 :
+                manhattan <= 9 ? 2 :
+                manhattan <= 14 ? 3 : 4;
 
-            int bucket;
+            // Forma de persecucióna basada en alineación simple
+            int alignment =
+                (dx == 0 || dy == 0) ? 1 : 0;
 
-            // Categorizamos la distancia en buckets para reducir el número de estados posibles
-            if (distance <= 2)
-                bucket = 0;
-            else if (distance <= 4)
-                bucket = 1;
-            else if (distance <= 6)
-                bucket = 2;
-            else if (distance <= 8)
-                bucket = 3;
-            else if (distance <= 12)
-                bucket = 4;
-            else
-                bucket = 5;
+            
+            // Si está muy cerca significa peligro alto
+            int dangerZone =
+                manhattan <= 2 ? 3 :
+                manhattan <= 4 ? 2 :
+                manhattan <= 7 ? 1 : 0;
 
-            // La clave del estado combina la dirección relativa y el bucket de distancia
-            return $"{dirX},{dirY},{bucket}";
+            // Cuadrante relativo simplificado 
+            int quadrant =
+                (dx >= 0 && dy >= 0) ? 0 :
+                (dx < 0 && dy >= 0) ? 1 :
+                (dx < 0 && dy < 0) ? 2 : 3;
+
+            // Combinamos todas las características en una clave única
+            return $"{dirX},{dirY},{distBucket},{alignment},{dangerZone},{quadrant}";
         }
     }
 }
