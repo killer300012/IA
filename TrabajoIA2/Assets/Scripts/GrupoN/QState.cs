@@ -69,15 +69,9 @@ namespace GrupoN
                 manhattan <= 2 ? 3 :
                 manhattan <= 4 ? 2 :
                 manhattan <= 7 ? 1 : 0;
-
-            // Cuadrante relativo simplificado 
-            int quadrant =
-                (dx >= 0 && dy >= 0) ? 0 :
-                (dx < 0 && dy >= 0) ? 1 :
-                (dx < 0 && dy < 0) ? 2 : 3;
-
+        
             // Combinamos todas las características en una clave única
-            return $"{dirX},{dirY},{distBucket},{alignment},{dangerZone},{quadrant}";
+            return $"{dirX},{dirY},{distBucket},{alignment},{dangerZone}";
         }
     }
 }
